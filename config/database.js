@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const Restaurant = require("../models/restaurants");
-const { query } = require("express");
 
 const addNewRestaurant = async (data) => {
   try {
@@ -30,11 +29,30 @@ const getAllRestaurants = async (page, perPage, borough) => {
     return restaurants;
   } catch (error) {
     console.error(error);
-    throw error;
+  }
+};
+
+const getRestaurantById = async (id) => {
+  try {
+    const restaurant = await Restaurant.findById(id);
+    return restaurant;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const updateRestaurantById = async (id, data) => {
+  try {
+    const updatedRestaurant = Restaurant.findByIdAndUpdate(id, { ...data });
+    return updatedRestaurant;
+  } catch (error) {
+    console.log(error);
   }
 };
 
 module.exports = {
   addNewRestaurant,
   getAllRestaurants,
+  getRestaurantById,
+  updateRestaurantById,
 };
