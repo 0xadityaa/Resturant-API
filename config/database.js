@@ -23,6 +23,7 @@ const getAllRestaurants = async (page, perPage, borough) => {
     }
 
     const restaurants = await Restaurant.find(query)
+      .lean()
       .sort({ restaurant_id: "asc" })
       .skip(page * perPage)
       .limit(perPage);
@@ -43,8 +44,19 @@ const getRestaurantById = async (id) => {
 
 const updateRestaurantById = async (id, data) => {
   try {
-    const updatedRestaurant = Restaurant.findByIdAndUpdate(id, { ...data });
+    const updatedRestaurant = await Restaurant.findByIdAndUpdate(id, {
+      ...data,
+    });
     return updatedRestaurant;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteRestaurantById = async (id) => {
+  try {
+    const deleteRestaurant = await Restaurant.findByIdAndDelete(id);
+    return deleteRestaurant;
   } catch (error) {
     console.log(error);
   }
@@ -55,4 +67,5 @@ module.exports = {
   getAllRestaurants,
   getRestaurantById,
   updateRestaurantById,
+  deleteRestaurantById,
 };
