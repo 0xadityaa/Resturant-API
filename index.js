@@ -25,6 +25,8 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 
+app.set("views", "./views");
+
 // allow forms
 app.use(express.urlencoded({ extended: true }));
 
