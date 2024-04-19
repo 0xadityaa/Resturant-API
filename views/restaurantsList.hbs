@@ -1,6 +1,10 @@
-<h1>Restaurants in {{borough}}</h1>
-<ul>
+<h1 style="color: blue; font-family: Arial;">Restaurants in {{borough}}</h1>
+<ul style="list-style-type: none; padding: 0;">
   {{#each restaurants}}
-    <li>{{this.name}} - {{this.borough}}</li>
+    <li style="background-color: #f0f0f0; margin-bottom: 10px; padding: 5px;">
+      {{this.name}}
+      -
+      {{this.borough}}
+    </li>
   {{/each}}
 </ul>
