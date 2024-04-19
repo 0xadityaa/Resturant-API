@@ -6,6 +6,7 @@ const { engine } = require("express-handlebars");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const Joi = require("joi");
+const path = require("path");
 
 const app = express();
 const bodyParser = require("body-parser"); // pull information from HTML POST (express4)
@@ -25,7 +26,7 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 
-app.set("views", "./views");
+app.set("views", path.join(__dirname, "views"));
 
 // allow forms
 app.use(express.urlencoded({ extended: true }));
