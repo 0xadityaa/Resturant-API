@@ -1,4 +1,5 @@
-# 5315 - Project
+# Resturant-API
+
 ## Introduction
 This project is a simple Node.js + MongoDB API that stores data on various restaurants in the US. It allows users to query, filter, paginate, and perform CRUD operations on this database through a user-friendly API. Additionally, the API features login authentication and JWT authorization for secure access on DB operational routes like PUT, POST, and DELETE. The project is deployed at 5315-project-web-env.eba-jvmdcira.us-east-1.elasticbeanstalk.com for easy access.
 
